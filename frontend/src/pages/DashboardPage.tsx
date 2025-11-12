@@ -53,7 +53,14 @@ const DashboardPage = () => {
   return (
     <div className="page dashboard-page">
       <section className="page-header">
-        <h2>{`${petName}의 건강 관리 홈`}</h2>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem' }}>
+          <img
+            src="/ChatGPT Image 2025년 11월 12일 오후 02_04_59.png"
+            alt="귀여운 고양이"
+            style={{ width: '60px', height: '60px', objectFit: 'contain' }}
+          />
+          <h2>{`${petName}의 건강 관리 홈`}</h2>
+        </div>
         <p>온보딩에서 입력한 정보를 기반으로 맞춤 케어를 준비했어요.</p>
         <Link className="link" to="/onboarding">
           반려묘 정보 수정하기
@@ -66,6 +73,13 @@ const DashboardPage = () => {
           description="품종과 나이를 기반으로 주요 관리 포인트를 안내해요."
           action={<button type="button">건강 기록 시작하기</button>}
         >
+          <div style={{ position: 'absolute', top: '10px', right: '10px', opacity: 0.3 }}>
+            <img
+              src="/ChatGPT Image 2025년 11월 12일 오후 02_05_05.png"
+              alt=""
+              style={{ width: '80px', height: '80px', objectFit: 'contain' }}
+            />
+          </div>
           <ul className="list">
             {healthRisks.map((risk) => (
               <li key={risk.title} className="list-item">
@@ -87,6 +101,13 @@ const DashboardPage = () => {
           title="오늘의 건강체크"
           description="버튼만 눌러도 오늘의 컨디션을 빠르게 기록할 수 있어요."
         >
+          <div style={{ position: 'absolute', bottom: '10px', left: '10px', opacity: 0.3 }}>
+            <img
+              src="/ChatGPT Image 2025년 11월 12일 오후 02_05_07.png"
+              alt=""
+              style={{ width: '70px', height: '70px', objectFit: 'contain' }}
+            />
+          </div>
           <div className="button-group">
             {dailyCheckItems.map((item) => (
               <button key={item} type="button" className="secondary">
@@ -100,6 +121,13 @@ const DashboardPage = () => {
           title="맞춤 헬스케어 루틴"
           description="AI가 추천한 주간/월간 케어 루틴입니다."
         >
+          <div style={{ position: 'absolute', top: '15px', left: '15px', opacity: 0.25 }}>
+            <img
+              src="/ChatGPT Image 2025년 11월 12일 오후 02_05_10.png"
+              alt=""
+              style={{ width: '90px', height: '90px', objectFit: 'contain' }}
+            />
+          </div>
           <ul className="list">
             {careRoutine.map((item) => (
               <li key={item} className="list-item">
@@ -112,7 +140,11 @@ const DashboardPage = () => {
         <WidgetCard
           title={`${petName}를 위한 추천 상품`}
           description="건강 위험 지도와 연동된 큐레이션이에요."
-          action={<button type="button">헬스샵으로 이동</button>}
+          action={
+            <Link to="/shop">
+              <button type="button">헬스샵으로 이동</button>
+            </Link>
+          }
         >
           <ul className="list">
             {recommendedProducts.map((product) => (
@@ -129,6 +161,13 @@ const DashboardPage = () => {
           description="현재 털갈이 진행 상황과 체크리스트를 확인하세요."
           action={<button type="button">털갈이 케어 가이드 보기</button>}
         >
+          <div style={{ position: 'absolute', bottom: '15px', right: '15px', opacity: 0.3 }}>
+            <img
+              src="/ChatGPT Image 2025년 11월 12일 오후 02_05_02.png"
+              alt=""
+              style={{ width: '75px', height: '75px', objectFit: 'contain' }}
+            />
+          </div>
           <p className="progress-label">털갈이 진행률 60%</p>
           <div className="progress-bar">
             <span className="progress" style={{ width: '60%' }} />

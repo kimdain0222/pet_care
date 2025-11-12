@@ -4,8 +4,15 @@ const CommunityPage = () => {
   return (
     <div className="page community-page">
       <header className="page-header">
-        <h2>스코티시폴드 클럽</h2>
-        <p>내 품종 클럽에서 다른 집사들과 경험을 나누세요.</p>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem' }}>
+          <img
+            src="/ChatGPT Image 2025년 11월 12일 오후 02_05_05.png"
+            alt="귀여운 고양이"
+            style={{ width: '60px', height: '60px', objectFit: 'contain' }}
+          />
+          <h2>스코티쉬 폴드 집사들 모여라</h2>
+        </div>
+        <p>우리 아이와 같은 친구들의 집사들과 경험을 나누세요.</p>
       </header>
 
       <div className="tab-menu">
@@ -17,7 +24,14 @@ const CommunityPage = () => {
       </div>
 
       <section className="post-list">
-        <article className="card">
+        <article className="card" style={{ position: 'relative', overflow: 'hidden' }}>
+          <div style={{ position: 'absolute', top: '15px', right: '15px', opacity: 0.2 }}>
+            <img
+              src="/ChatGPT Image 2025년 11월 12일 오후 02_05_02.png"
+              alt=""
+              style={{ width: '70px', height: '70px', objectFit: 'contain' }}
+            />
+          </div>
           <header>
             <h3>관절 염증 있는 아이 계신가요?</h3>
             <span className="meta">작성자 · 댓글 12 · 좋아요 24</span>
@@ -25,7 +39,14 @@ const CommunityPage = () => {
           <p>스코티시폴드 관절 관리 팁을 공유해 주세요!</p>
         </article>
 
-        <article className="card">
+        <article className="card" style={{ position: 'relative', overflow: 'hidden' }}>
+          <div style={{ position: 'absolute', bottom: '15px', left: '15px', opacity: 0.2 }}>
+            <img
+              src="/ChatGPT Image 2025년 11월 12일 오후 02_04_59.png"
+              alt=""
+              style={{ width: '65px', height: '65px', objectFit: 'contain' }}
+            />
+          </div>
           <header>
             <h3>방문 인증 · 강남 케어 동물병원 후기</h3>
             <span className="meta">작성자 · 댓글 4 · 좋아요 15</span>

@@ -17,13 +17,34 @@ const ShopPage = () => {
   return (
     <div className="page shop-page">
       <header className="page-header">
-        <h2>헬스샵</h2>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem' }}>
+          <img
+            src="/ChatGPT Image 2025년 11월 12일 오후 02_05_02.png"
+            alt="귀여운 고양이"
+            style={{ width: '60px', height: '60px', objectFit: 'contain' }}
+          />
+          <h2>헬스샵</h2>
+        </div>
         <p>품종과 건강 상태를 기반으로 엄선한 상품을 만나보세요.</p>
       </header>
 
       <section className="category-grid">
-        {categories.map((category) => (
-          <article key={category.title} className="card">
+        {categories.map((category, index) => (
+          <article key={category.title} className="card" style={{ position: 'relative', overflow: 'hidden' }}>
+            <div style={{ 
+              position: 'absolute', 
+              top: index % 2 === 0 ? '10px' : 'auto',
+              bottom: index % 2 === 1 ? '10px' : 'auto',
+              right: index % 2 === 0 ? '10px' : 'auto',
+              left: index % 2 === 1 ? '10px' : 'auto',
+              opacity: 0.25 
+            }}>
+              <img
+                src={`/ChatGPT Image 2025년 11월 12일 오후 02_0${index === 0 ? '4_59' : index === 1 ? '5_07' : '5_10'}.png`}
+                alt=""
+                style={{ width: '70px', height: '70px', objectFit: 'contain' }}
+              />
+            </div>
             <h3>{category.title}</h3>
             <ul>
               {category.items.map((item) => (

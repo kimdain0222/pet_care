@@ -1,14 +1,35 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const breeds = ['스코티시 폴드', '페르시안', '메인쿤'];
 
 const OnboardingPage = () => {
+  const navigate = useNavigate();
   const [isFirstTime, setIsFirstTime] = useState<boolean | null>(null);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+
+    // TODO: 실제 API로 데이터 전송
+    console.log('온보딩 데이터:', data);
+
+    // 온보딩 완료 후 대시보드로 이동
+    navigate('/dashboard');
+  };
 
   return (
     <div className="page onboarding-page">
-      <h2>집사님의 정보를 입력해주세요</h2>
-      <form className="form">
+      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+        <img
+          src="/ChatGPT Image 2025년 11월 12일 오후 02_05_02.png"
+          alt="귀여운 고양이"
+          style={{ width: '70px', height: '70px', objectFit: 'contain' }}
+        />
+        <h2>집사님의 정보를 입력해주세요</h2>
+      </div>
+      <form className="form" onSubmit={handleSubmit}>
         <fieldset>
           <legend>계정 정보</legend>
           <label>
@@ -22,10 +43,14 @@ const OnboardingPage = () => {
         </fieldset>
 
         <fieldset>
-          <legend>반려묘 정보</legend>
+          <legend>애기의 정보를 입력해주세요</legend>
+          <label>
+            반려묘 이름
+            <input type="text" name="petName" placeholder="예: 꼬미" required />
+          </label>
           <label>
             성별
-            <select name="gender" defaultValue="">
+            <select name="gender" defaultValue="" required>
               <option value="" disabled>
                 선택하세요
               </option>
@@ -35,15 +60,22 @@ const OnboardingPage = () => {
           </label>
           <label>
             나이(세)
-            <input type="number" name="age" min="0" placeholder="예: 3" />
+            <input type="number" name="age" min="0" placeholder="예: 3" required />
           </label>
           <label>
             몸무게(kg)
-            <input type="number" name="weight" min="0" step="0.1" placeholder="예: 4.2" />
+            <input
+              type="number"
+              name="weight"
+              min="0"
+              step="0.1"
+              placeholder="예: 4.2"
+              required
+            />
           </label>
           <label>
             품종
-            <select name="breed" defaultValue="">
+            <select name="breed" defaultValue="" required>
               <option value="" disabled>
                 선택하세요
               </option>
@@ -69,6 +101,7 @@ const OnboardingPage = () => {
                 name="isFirstTime"
                 value="yes"
                 onChange={() => setIsFirstTime(true)}
+                required
               />
               처음 키우시나요? 예
             </label>
@@ -78,6 +111,7 @@ const OnboardingPage = () => {
                 name="isFirstTime"
                 value="no"
                 onChange={() => setIsFirstTime(false)}
+                required
               />
               아니요
             </label>
